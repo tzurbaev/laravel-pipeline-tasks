@@ -1,0 +1,39 @@
+{
+    "name": "tzurbaev/laravel-pipeline-tasks",
+    "description": "Pipeline Tasks based on illuminate/pipeline",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tzurbaev",
+            "email": "zurbaev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "illuminate/pipeline": "5.5.*",
+        "illuminate/container": "5.5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "mockery/mockery": "^0.9.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zurbaev\\PipelineTasks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zurbaev\\PipelineTasks\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "PipelineTasks": "Zurbaev\\PipelineTasks\\Facades\\PipelineTasks"
+            }
+        }
+    }
+}
