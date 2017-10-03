@@ -97,20 +97,20 @@ class TasksTest extends TestCase
         $this->assertSame('FirstPipeResultFromTaskThatSucceeds', $task->getPipeResult('FirstPipe'));
     }
 
-    public function testPipeMethodCanBeOverriden()
+    public function testPipeMethodCanBeOverridden()
     {
         $task = \Mockery::mock(ExampleTaskThatSucceeds::class.'[pipeMethod]');
-        $task->shouldReceive('pipeMethod')->once()->andReturn('overridenHandleMethod');
+        $task->shouldReceive('pipeMethod')->once()->andReturn('overriddenHandleMethod');
         $this->manager->start($task);
 
         $this->assertTrue($task->hasPipeResult('FirstPipe'));
-        $this->assertSame('FirstPipeResultFromTaskThatSucceedsWithOverridenMethod', $task->getPipeResult('FirstPipe'));
+        $this->assertSame('FirstPipeResultFromTaskThatSucceedsWithOverriddenMethod', $task->getPipeResult('FirstPipe'));
     }
 
-    public function testPipeNameCanBeOverriden()
+    public function testPipeNameCanBeOverridden()
     {
         $pipe = \Mockery::mock(FirstPipe::class.'[name]');
-        $pipe->shouldReceive('name')->atLeast()->once()->andReturn('overridenFirstPipe');
+        $pipe->shouldReceive('name')->atLeast()->once()->andReturn('overriddenFirstPipe');
 
         $task = \Mockery::mock(ExampleTaskThatSucceeds::class.'[pipes]');
         $task->shouldReceive('pipes')->once()->andReturn([
@@ -120,7 +120,7 @@ class TasksTest extends TestCase
         $this->manager->start($task);
 
         $this->assertFalse($task->hasPipeResult('FirstPipe'));
-        $this->assertTrue($task->hasPipeResult('overridenFirstPipe'));
+        $this->assertTrue($task->hasPipeResult('overriddenFirstPipe'));
     }
 
     public function testTaskInstanceShouldBeAvailableOnPipeObject()

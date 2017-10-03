@@ -11,9 +11,9 @@ class FirstPipe extends Pipe
         return 'FirstPipeResultFromTaskThatSucceeds';
     }
 
-    public function overridenHandleMethod(array $payload, \Closure $next)
+    public function overriddenHandleMethod(array $payload, \Closure $next)
     {
-        $payload[1]->setPipeResult($this->name(), 'FirstPipeResultFromTaskThatSucceedsWithOverridenMethod');
+        $payload[1]->setPipeResult($this->name(), 'FirstPipeResultFromTaskThatSucceedsWithOverriddenMethod');
 
         return $next($payload);
     }

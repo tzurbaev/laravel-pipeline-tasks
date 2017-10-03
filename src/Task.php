@@ -90,9 +90,9 @@ abstract class Task
      * Get pipe result.
      *
      * @param string $name
-     * @param null   $default
+     * @param mixed  $default = null
      *
-     * @return mixed|null
+     * @return mixed
      */
     public function getPipeResult(string $name, $default = null)
     {
